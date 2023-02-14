@@ -1,0 +1,31 @@
+{
+  "name": "Tweet Replier Bot",
+  "description": "Generate replies for a tweet",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "assets/twitter16.png",
+    "24": "assets/twitter24.png",
+    "32": "assets/twitter32.png",
+    "48": "assets/twitter.png",
+    "72": "assets/twitter.png",
+    "96": "assets/twitter.png",
+    "128": "assets/twitter.png",
+    "512": "assets/twitter.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Generate reply for a tweet"
+  },
+  "background": {
+    "service_worker": "scripts/contextMenuServiceWorker.js"
+  },
+  "permissions": ["contextMenus", "tabs", "storage"],
+  "host_permissions": ["https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["scripts/content.js"]
+    }
+  ]
+}
